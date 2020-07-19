@@ -42,10 +42,15 @@ function make_middle() {
     const __b_prev = __i[__i.length/2 - 4];
     $(__b_prev).addClass('__buffer __buffer-first');
 
+    write_indicator();
+
 }
 
 make_middle();
 
+function write_indicator() {
+
+}
 
 _carousel.on('circle_slider:next', function(){
     // delete last item
