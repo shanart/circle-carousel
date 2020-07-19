@@ -13,7 +13,7 @@ _carousel.append(_original_items);
 function make_middle() {
     const __i =_carousel.find('.__circle_item');
     __i.each(function(){
-        $(this).removeClass('middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2');
+        $(this).removeClass('middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer');
     });
     let __middle = __i[__i.length/2 - 1];
     $(__middle).addClass('middle');
@@ -35,6 +35,13 @@ function make_middle() {
     // __ get middle + 2
     const __m_next_2 = __i[__i.length/2 + 1];
     $(__m_next_2).addClass('middle_next_2');
+
+    // buffer for animation
+    const __b_next = __i[__i.length/2 + 2];
+    $(__b_next).addClass('__buffer');
+    const __b_prev = __i[__i.length/2 - 4];
+    $(__b_prev).addClass('__buffer');
+
 }
 
 make_middle();
