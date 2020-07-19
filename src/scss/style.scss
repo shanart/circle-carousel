@@ -2,23 +2,57 @@ body, html {
     font-family: sans-serif;
     margin: 0;
     padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
 
+$blue: #00478E;
+$orange: #FF5D00;
+
 .circle-carousel {
+  height: 100%;
+  width: 100%;
+
   .__circle_item {
     display: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
 
     &.__buffer {
       display: block;
       opacity: 0.5;
       font-size: 13px;
+
+      &:last-of-type {
+        top: 120%;
+      }
     }
     
-    &.middle_prev_2 { font-size: 14px; }
-    &.middle_prev_1 { font-size: 20px; }
-    &.middle { font-size: 24px; color: teal }
-    &.middle_next_1 { font-size: 20px; }
-    &.middle_next_2 { font-size: 14px; }
+    &.middle_prev_2 {
+      top: 0;
+      left: 0;
+    }
+    &.middle_prev_1 {
+      left: 210px;
+      top: 65px;
+    }
+    &.middle { 
+      font-size: 22px; 
+      color: $orange;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &.middle_next_1 {
+      left: 210px;
+      top: 418px;
+    }
+    &.middle_next_2 {
+      top: 100%;
+      left: 0;
+    }
 
     &.middle, &.middle_prev_1,
     &.middle_prev_2, &.middle_next_1,
@@ -27,4 +61,26 @@ body, html {
     }
 
   }
+}
+
+.circle-carousel-wrapper {
+  position: relative;
+  height: 500px;
+  width: 286px;
+  margin: 50px 0;
+
+  &:before {
+    content: '';
+    width: 500px;
+    height: 500px;
+    border-radius: 100%;
+    border: 1px solid $blue;
+    position: absolute;
+    left: -250px;
+    top: 0;
+  }
+}
+
+.__circle_item_content {
+  white-space: nowrap;
 }

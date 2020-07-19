@@ -1,7 +1,7 @@
 const _carousel = $('[data-c-area="circle-carousel"]');
 const _btn_next = $('[data-c-action="next"]');
 const _btn_prev = $('[data-c-action="prev"]');
-
+const classlist = 'middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer __buffer-first __buffer-last';
 // copy items
 _carousel.find('.__circle_item').clone().appendTo(_carousel);
 
@@ -13,7 +13,7 @@ _carousel.append(_original_items);
 function make_middle() {
     const __i =_carousel.find('.__circle_item');
     __i.each(function(){
-        $(this).removeClass('middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer');
+        $(this).removeClass(classlist);
     });
     let __middle = __i[__i.length/2 - 1];
     $(__middle).addClass('middle');
@@ -38,9 +38,9 @@ function make_middle() {
 
     // buffer for animation
     const __b_next = __i[__i.length/2 + 2];
-    $(__b_next).addClass('__buffer');
+    $(__b_next).addClass('__buffer __buffer-first');
     const __b_prev = __i[__i.length/2 - 4];
-    $(__b_prev).addClass('__buffer');
+    $(__b_prev).addClass('__buffer __buffer-last');
 
 }
 
