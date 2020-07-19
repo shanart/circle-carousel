@@ -1,7 +1,8 @@
 const _carousel = $('[data-c-area="circle-carousel"]');
 const _btn_next = $('[data-c-action="next"]');
 const _btn_prev = $('[data-c-action="prev"]');
-const classlist = 'middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer __buffer-first __buffer-last';
+const _indicator_area = $('[data-c-area="indicator"]');
+const _classlist = 'middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer __buffer-first __buffer-last';
 // copy items
 _carousel.find('.__circle_item').clone().appendTo(_carousel);
 
@@ -13,7 +14,7 @@ _carousel.append(_original_items);
 function make_middle() {
     const __i =_carousel.find('.__circle_item');
     __i.each(function(){
-        $(this).removeClass(classlist);
+        $(this).removeClass(_classlist);
     });
     let __middle = __i[__i.length/2 - 1];
     $(__middle).addClass('middle');
@@ -49,7 +50,9 @@ function make_middle() {
 make_middle();
 
 function write_indicator() {
-
+    const current = $('.__circle_item.middle').data('c-item');
+    const output = current < 10 ? '0' + current : '' + current; 
+    _indicator_area.text(output);
 }
 
 _carousel.on('circle_slider:next', function(){

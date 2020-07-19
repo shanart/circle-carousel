@@ -6,7 +6,9 @@ var _btn_next = $('[data-c-action="next"]');
 
 var _btn_prev = $('[data-c-action="prev"]');
 
-var classlist = 'middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer __buffer-first __buffer-last'; // copy items
+var _indicator_area = $('[data-c-area="indicator"]');
+
+var _classlist = 'middle middle_prev_1 middle_prev_2 middle_next_1 middle_next_2 __buffer __buffer-first __buffer-last'; // copy items
 
 _carousel.find('.__circle_item').clone().appendTo(_carousel); // reverse original
 
@@ -20,7 +22,7 @@ function make_middle() {
   var __i = _carousel.find('.__circle_item');
 
   __i.each(function () {
-    $(this).removeClass(classlist);
+    $(this).removeClass(_classlist);
   });
 
   var __middle = __i[__i.length / 2 - 1];
@@ -49,7 +51,12 @@ function make_middle() {
 
 make_middle();
 
-function write_indicator() {}
+function write_indicator() {
+  var current = $('.__circle_item.middle').data('c-item');
+  var output = current < 10 ? '0' + current : '' + current;
+
+  _indicator_area.text(output);
+}
 
 _carousel.on('circle_slider:next', function () {
   // delete last item
