@@ -38,9 +38,9 @@ function make_middle() {
 
     // buffer for animation
     const __b_next = __i[__i.length/2 + 2];
-    $(__b_next).addClass('__buffer __buffer-first');
+    $(__b_next).addClass('__buffer __buffer-last');
     const __b_prev = __i[__i.length/2 - 4];
-    $(__b_prev).addClass('__buffer __buffer-last');
+    $(__b_prev).addClass('__buffer __buffer-first');
 
 }
 

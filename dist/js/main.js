@@ -41,9 +41,9 @@ function make_middle() {
   $(__m_next_2).addClass('middle_next_2'); // buffer for animation
 
   var __b_next = __i[__i.length / 2 + 2];
-  $(__b_next).addClass('__buffer __buffer-first');
+  $(__b_next).addClass('__buffer __buffer-last');
   var __b_prev = __i[__i.length / 2 - 4];
-  $(__b_prev).addClass('__buffer __buffer-last');
+  $(__b_prev).addClass('__buffer __buffer-first');
 }
 
 make_middle();
