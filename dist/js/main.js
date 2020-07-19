@@ -16,15 +16,19 @@ var _original_items = $($('[data-c-area="circle-carousel"] .__circle_item').get(
 _carousel.append(_original_items);
 
 _carousel.on('circle_slider:next', function () {
-  console.log('trigger next item'); // TODO: move next
   // delete last item
-  // append to start of _carousel()
+  var _last = $('[data-c-area="circle-carousel"] .__circle_item:last-child'); // append to start of _carousel()
+
+
+  _last.prependTo(_carousel);
 });
 
 _carousel.on('circle_slider:prev', function () {
-  console.log('trigger prev item'); // TODO: move prev
   // delete first item
-  // append to end of _carousel()
+  var _first = $('[data-c-area="circle-carousel"] .__circle_item:first-child'); // append to end of _carousel()
+
+
+  _first.appendTo(_carousel);
 });
 
 _btn_next.on('click', function () {

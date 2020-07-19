@@ -6,8 +6,12 @@ body, html {
 
 
 
-.cicle-carousel {
+.circle-carousel {
   .__circle_item {
+
+    &.first {
+      color: teal
+    }
 
   }
 }

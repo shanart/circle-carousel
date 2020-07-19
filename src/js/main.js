@@ -13,19 +13,19 @@ const _original_items = $($('[data-c-area="circle-carousel"] .__circle_item').ge
 _carousel.append(_original_items);
 
 _carousel.on('circle_slider:next', function(){
-    console.log('trigger next item');
-    // TODO: move next
-
     // delete last item
+    const _last = $('[data-c-area="circle-carousel"] .__circle_item:last-child');
+    
     // append to start of _carousel()
+    _last.prependTo(_carousel);
+
 });
 
 _carousel.on('circle_slider:prev', function(){
-    console.log('trigger prev item');
-    // TODO: move prev
-
     // delete first item
+    const _first = $('[data-c-area="circle-carousel"] .__circle_item:first-child');
     // append to end of _carousel()
+    _first.appendTo(_carousel);
 });
 
 
